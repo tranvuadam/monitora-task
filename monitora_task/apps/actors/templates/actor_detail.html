@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie DB</title>
+</head>
+<body>
+    <h1>{{object.name}}</h1>
+      <h4>Movies:</h4>
+      {% for movie in object.movies.all %}
+            <p><a href="{% url 'movies:movie-detail' pk=movie.pk %}">{{movie.name}}</a></p>
+      {% endfor %}
+</body>
+</html>

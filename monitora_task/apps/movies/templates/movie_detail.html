@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie DB</title>
+</head>
+<body>
+    <h1>{{object.name}}</h1>
+      <h4>Actors:</h4>
+      {% for actor in object.actors.all %}
+        <p><a href="{% url 'actors:actor-detail' pk=actor.pk %}">{{ actor.name }}</a></p>
+      {%empty%}
+        No actors found.
+      {% endfor %}
+</body>
+</html>

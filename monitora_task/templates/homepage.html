@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie DB</title>
+</head>
+<style>
+    html, body{
+        overflow: hidden;
+    }
+    .movies-container, .actors-container{
+            width: 50%;
+            padding: 50px;
+    }
+    .movies, .actors{
+        max-height: 700px;
+        overflow: auto;
+    }
+    .search{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .search input{
+        width: 80%;
+    }
+</style>
+<body>
+<form class="search" method="get">
+        <input type="text" id="name" name="name" placeholder="Search by movie name or actor name">
+</form>
+<div style="display: flex">
+    <div class="movies-container">
+        <h1>Movies: </h1>
+        <div class="movies">
+        {% for movie in movies %}
+            <p><a href="{% url 'movies:movie-detail' pk=movie.pk %}">{{movie.name}}</a></p>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="actors-container">
+        <h1>Actors: </h1>
+        <div class="actors">
+        {% for actor in actors %}
+            <p><a href="{% url 'actors:actor-detail' pk=actor.pk %}">{{actor.name}}</a></p>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
