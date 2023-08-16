@@ -13,4 +13,8 @@ python manage.py test
 ```console
 python manage.py runserver
 ```
+To download movie and actor data on an empty db
+```console
+python manage.py download_movies_and_actors
+```
 
